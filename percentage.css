@@ -1,0 +1,44 @@
+body{
+    background-color: black;
+}
+.descuento h1{
+    padding-top: 10px;
+}
+.descuento{
+    background-color: aquamarine;
+    width: 430px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+#pepe{
+    color: rgb(234, 255, 0);
+}
+
+.valores{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.boton{
+    height: 30px;
+    width: 80px;
+}
+input{
+    width: 250px;
+    height: 25px;
+    border-radius: 10px;
+    border-style: none;
+
+}
+
+#descuento{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
