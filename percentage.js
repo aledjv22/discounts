@@ -20,7 +20,7 @@ function rebaja(){
     return;
   }
   let result = (((prec*(100-desc))/100).toFixed(2)).toString();
-  resultado.textContent = ("El precio final es: " + result);
+  resultado.textContent = ("El precio final es: $" + result);
   body.insertBefore(resultado,body.children[1]);
 }
 
@@ -68,17 +68,26 @@ coupon_button.innerText = 'Calculate discount';
 discount_coupon_button.appendChild(coupon_button);
 coupon_button.addEventListener('click',discountCoupon);
 
-const couponsList = ['ale','juli'];
+const couponsList = [
+  { coupon:'ale', value:20},
+  { coupon:'juli', value:10}
+];
+
 function discountCoupon(){
+  let prec = parseFloat(input_price_coupon.value,10);
+  let couponInsert = input_discount_coupon.value;
+  let status = false;
+  let result;
+  let desc;
   couponsList.forEach(couponElem =>{
-    if(couponElem == input_discount_coupon.value){
-      let prec = parseFloat(input_price_coupon.value,10);
-      let result = prec + 10;
-      resultado.textContent = ("El precio final es: " + result);
+    if(couponElem.coupon == couponInsert){
+      desc = couponElem.value;
+      result = (((prec*(100-desc))/100).toFixed(2)).toString();
       body.insertBefore(resultado,body.children[3]);
-      return;
+      status = true;
     }
   });
-  resultado.textContent = "Llene el formulario y no se haga el vivo";
+  console.log(typeof(input_price_coupon.value));
+  resultado.innerText = (status && (input_price_coupon.value!= null) && (couponInsert != null))?("El precio final es: $" + result):("Llene el formulario y no se haga el vivo");
   return;
 }
