@@ -1,35 +1,54 @@
 body{
     background-color: black;
 }
-.descuento h1{
+
+.coupon-discount h1,
+.cal-discount h1{
     padding-top: 10px;
 }
-.descuento{
+
+.coupon-discount,
+.cal-discount{
     background-color: aquamarine;
     width: 430px;
     padding-left: 30px;
     padding-bottom: 10px;
 }
 
-#pepe{
-    color: rgb(234, 255, 0);
-}
-
+.coupons-values,
 .valores{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+#discount-coupon-button,
 #btn{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .boton{
     height: 30px;
     width: 80px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: blue;
+    color: white;
+    font-weight: bolder;
 }
+
+.discount-coupon-button{
+    height: 40px;
+    width: 80px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: blue;
+    color: white;
+    font-weight: bolder;
+}
+
 input{
     width: 250px;
     height: 25px;
@@ -38,7 +57,12 @@ input{
 
 }
 
-#descuento{
+#discount-coupon,
+#discount{
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+#pepe{
+    color: yellow;
 }
