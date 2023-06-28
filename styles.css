@@ -11,13 +11,16 @@ body{
 .cal-discount{
     background-color: aquamarine;
     width: 430px;
-    padding-left: 30px;
     padding-bottom: 10px;
     border-radius: 35px;
 }
 
-.coupons-values,
-.valores{
+.titulo,
+.indicacion,
+.valores,
+.coupon-title,
+.coupons_indications,
+.coupons-values{
     display: flex;
     flex-direction: column;
     align-items: center;
