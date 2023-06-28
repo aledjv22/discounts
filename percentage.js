@@ -9,8 +9,9 @@ const body = document.querySelector('body');
 function rebaja(){
   let prec = parseFloat(precio.value,10);
   let desc = parseFloat(discount.value,10);
-  if (!prec || !desc) {
+  if (isNaN(prec) || isNaN(desc)) {
     resultado.textContent = "Llene el formulario y no se haga el vivo";
+    body.insertBefore(resultado,body.children[1]);
     return;
   }
 
@@ -22,12 +23,13 @@ function rebaja(){
   let result = (((prec*(100-desc))/100).toFixed(2)).toString();
   resultado.textContent = ("El precio final es: $" + result);
   body.insertBefore(resultado,body.children[1]);
+  return;
 }
 
 boton.addEventListener('click',rebaja);
 
 
-//start the structure of the section of the discount coupons
+//structure corresponding to the 'section' of discounts through coupons
 const coupon_discount = document.createElement('section');
 coupon_discount.classList.add('coupon-discount');
 body.insertBefore(coupon_discount,body.children[2]);
@@ -67,6 +69,9 @@ coupon_button.classList.add('discount-coupon-button');
 coupon_button.innerText = 'Calculate discount';
 discount_coupon_button.appendChild(coupon_button);
 coupon_button.addEventListener('click',discountCoupon);
+const coupon_result = document.createElement('p');
+coupon_result.setAttribute('id', 'pepe');
+coupon_discount.appendChild(coupon_result);
 
 const couponsList = [
   { coupon:'ale', value:20},
@@ -74,20 +79,24 @@ const couponsList = [
 ];
 
 function discountCoupon(){
-  let prec = parseFloat(input_price_coupon.value,10);
+  let price = parseFloat(input_price_coupon.value,10);
   let couponInsert = input_discount_coupon.value;
-  let status = false;
-  let result;
-  let desc;
-  couponsList.forEach(couponElem =>{
-    if(couponElem.coupon == couponInsert){
-      desc = couponElem.value;
-      result = (((prec*(100-desc))/100).toFixed(2)).toString();
-      body.insertBefore(resultado,body.children[3]);
-      status = true;
-    }
-  });
-  console.log(typeof(input_price_coupon.value));
-  resultado.innerText = (status && (input_price_coupon.value!= null) && (couponInsert != null))?("El precio final es: $" + result):("Llene el formulario y no se haga el vivo");
+  let result, desc;
+  if(isNaN(price)&&couponInsert === ""){ //empty inputs
+    coupon_result.innerText = "Fill out the form and don't pretend";
+  }else if(isNaN(price)){ //empty price input
+    coupon_result.innerText = 'Enter the price of your product';
+  }else if(couponInsert.trim() === ""){ //empty coupon input
+    coupon_result.innerText = 'Enter your coupon';
+  }else{ //coupon input with content
+    couponsList.forEach(couponElem =>{
+      if(couponElem.coupon == couponInsert.replace(/\s/g, "")){ //spaces removed by yes one was placed by mistake
+        desc = couponElem.value;
+        result = (((price*(100-desc))/100).toFixed(2)).toString();
+      }
+    });
+    coupon_result.innerText = (result === undefined)?'Invalid coupon(check the spaces)':'Its new price is $' + result;
+  }
+  body.insertBefore(coupon_result,body.children[4]);
   return;
 }
