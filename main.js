@@ -66,7 +66,7 @@ coupon_discount.appendChild(discount_coupon_button);
 
 const coupon_button = document.createElement('button');
 coupon_button.classList.add('discount-coupon-button');
-coupon_button.innerText = 'Calculate discount';
+coupon_button.innerText = 'Calculate';
 discount_coupon_button.appendChild(coupon_button);
 coupon_button.addEventListener('click',discountCoupon);
 const coupon_result = document.createElement('p');
@@ -80,7 +80,8 @@ const couponsList = [
 
 function discountCoupon(){
   let price = parseFloat(input_price_coupon.value,10);
-  let couponInsert = input_discount_coupon.value;
+  //spaces are eliminated, upper and/or lower case are indifferent
+  let couponInsert = input_discount_coupon.value.replace(/\s/g, "").toLowerCase();
   let result, desc;
   if(isNaN(price)&&couponInsert === ""){ //empty inputs
     coupon_result.innerText = "Fill out the form and don't pretend";
@@ -90,7 +91,7 @@ function discountCoupon(){
     coupon_result.innerText = 'Enter your coupon';
   }else{ //coupon input with content
     couponsList.forEach(couponElem =>{
-      if(couponElem.coupon == couponInsert.replace(/\s/g, "")){ //spaces removed by yes one was placed by mistake
+      if(couponElem.coupon.toLowerCase() == couponInsert){
         desc = couponElem.value;
         result = (((price*(100-desc))/100).toFixed(2)).toString();
       }
