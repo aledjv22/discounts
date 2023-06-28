@@ -101,3 +101,19 @@ function discountCoupon(){
   body.insertBefore(coupon_result,body.children[4]);
   return;
 }
+
+
+//Structure corresponding to the 'section' of adding discount coupons
+const coupons_section = document.createElement('section');
+coupons_section.classList.add('coupons-section');
+body.insertBefore(coupons_section,body.children[5]);
+
+const coupons_title = document.createElement('h1');
+coupons_title.classList.add('coupons-title');
+coupons_title.innerText = 'Add or remove a coupon';
+coupons_section.appendChild(coupons_title);
+
+const indications_p = document.createElement('p');
+indications_p.classList.add('indications-p');
+indications_p.innerText = 'The following inputs are used to add or remove coupons';
+coupons_section.appendChild(indications_p);

@@ -3,12 +3,14 @@ body{
 }
 
 .coupon-discount h1,
-.cal-discount h1{
+.cal-discount h1,
+.coupons-section h1{
     padding-top: 10px;
 }
 
 .coupon-discount,
-.cal-discount{
+.cal-discount,
+.coupons-section{
     background-color: aquamarine;
     width: 430px;
     padding-bottom: 10px;
@@ -20,7 +22,9 @@ body{
 .valores,
 .coupon-title,
 .coupons_indications,
-.coupons-values{
+.coupons-values,
+.coupons-title,
+.indications-p{
     display: flex;
     flex-direction: column;
     align-items: center;
