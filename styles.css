@@ -72,16 +72,6 @@ input{
 }
 
 @media (max-width: 1000px) {
-    body{
-        background-color: blue;
-    }
-
-    .coupon-discount h1,
-    .cal-discount h1,
-    .coupons-section h1{
-        padding-top: 10px;
-    }
-
     .coupon-discount,
     .cal-discount,
     .coupons-section{
@@ -106,42 +96,6 @@ input{
     .indications-p{
         margin-left: 10px;
         margin-right: 10px;
-        font-weight: bolder;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #discount-coupon-button,
-    #btn{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .boton,
-    .discount-coupon-button{
-        height: 30px;
-        width: 80px;
-        border-radius: 10px;
-        border-style: none;
-        background-color: blue;
-        color: white;
-        font-weight: bolder;
-    }
-
-    input{
-        width: 250px;
-        height: 25px;
-        border-radius: 10px;
-        border-style: none;
-
-    }
-
-    #discount-coupon,
-    #discount{
-        margin-top: 10px;
-        margin-bottom: 10px;
     }
 
     #pepe{
