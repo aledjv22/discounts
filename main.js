@@ -96,7 +96,7 @@ function discountCoupon(){
         result = (((price*(100-desc))/100).toFixed(2)).toString();
       }
     });
-    coupon_result.innerText = (result === undefined)?'Invalid coupon(check the spaces)':'Its new price is $' + result;
+    coupon_result.innerText = (result === undefined)?'Invalid coupon(check the spaces)':"It's new price is $" + result;
   }
   body.insertBefore(coupon_result,body.children[4]);
   return;
