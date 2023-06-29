@@ -27,7 +27,8 @@ body{
 .indications-p{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;    
+    font-weight: bolder;
 }
 
 #discount-coupon-button,
@@ -64,6 +65,10 @@ input{
 
 #pepe{
     color: yellow;
+    padding-left: 35px;
+    margin-left: 30px;
+    color: yellow;
+    font-weight: bolder;
 }
 
 @media (max-width: 1000px) {
@@ -98,8 +103,7 @@ input{
     .coupons_indications,
     .coupons-values,
     .coupons-title,
-    .indications-p,
-    #pepe{
+    .indications-p{
         margin-left: 10px;
         margin-right: 10px;
         font-weight: bolder;
@@ -141,6 +145,8 @@ input{
     }
 
     #pepe{
+        padding-left: 35px;
+        margin-left: 20px;
         color: yellow;
     }
 }
