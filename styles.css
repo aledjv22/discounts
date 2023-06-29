@@ -68,7 +68,7 @@ input{
 
 @media (max-width: 1000px) {
     body{
-        background-color: black;
+        background-color: blue;
     }
 
     .coupon-discount h1,
