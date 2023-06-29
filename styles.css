@@ -3,23 +3,22 @@ body{
 }
 
 .coupon-discount h1,
-.cal-discount h1,
+.discount-percentage h1,
 .coupons-section h1{
     padding-top: 10px;
 }
 
 .coupon-discount,
-.cal-discount,
+.discount-percentage,
 .coupons-section{
     background-color: aquamarine;
     width: 430px;
-    padding-bottom: 10px;
     border-radius: 35px;
 }
 
-.titulo,
-.indicacion,
-.valores,
+.discount-title,
+.discount_indications,
+.discount-values,
 .coupon-title,
 .coupons_indications,
 .coupons-values,
@@ -32,13 +31,14 @@ body{
 }
 
 #discount-coupon-button,
-#btn{
+#discount-button{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 5px;
 }
 
-.boton,
+.button-discount,
 .discount-coupon-button{
     height: 30px;
     width: 80px;
@@ -73,22 +73,17 @@ input{
 
 @media (max-width: 1000px) {
     .coupon-discount,
-    .cal-discount,
+    .discount-percentage,
     .coupons-section{
         background-color: aquamarine;
         width: 350px;
-        padding-bottom: 10px;
         border-radius: 35px;
         margin-left: 15px;
     }
-
-    .coupon-discount{
-        height: 213px;
-    }
     
-    .titulo,
-    .indicacion,
-    .valores,
+    .discount-title,
+    .discount_indications,
+    .discount-values,
     .coupon-title,
     .coupons_indications,
     .coupons-values,
