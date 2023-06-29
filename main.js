@@ -1,32 +1,65 @@
-const precio = document.querySelector('#precio');
-const discount = document.querySelector('#discount');
-const boton = document.querySelector('.boton');
-const resultado = document.createElement('p');
-const cal_discount = document.querySelector('.cal-discount');
-resultado.setAttribute('id', 'pepe');
 const body = document.querySelector('body');
 
-function rebaja(){
-  let prec = parseFloat(precio.value,10);
-  let desc = parseFloat(discount.value,10);
+//structure corresponding to the 'section' of discounts through own percentages
+const discount_percentage = document.createElement('section');
+discount_percentage.classList.add('discount-percentage');
+body.appendChild(discount_percentage);
+
+const discount_title = document.createElement('h1');
+discount_title.classList.add('discount-title');
+discount_title.innerText = 'Discount calculator';
+discount_percentage.appendChild(discount_title);
+
+const discount_indications = document.createElement('p');
+discount_indications.classList.add('discount_indications');
+discount_indications.innerText = 'Enter the price of your product and the discount percentage.';
+discount_percentage.appendChild(discount_indications);
+
+const discount_values = document.createElement('div');
+discount_values.classList.add('discount-values');
+discount_percentage.appendChild(discount_values);
+
+const input_price = document.createElement('input');
+input_price.setAttribute('type','number');
+input_price.setAttribute('placeholder', 'Enter the price');
+input_price.setAttribute('id', 'price');
+discount_values.appendChild(input_price);
+
+const input_discount = document.createElement('input');
+input_discount.setAttribute('type','number');
+input_discount.setAttribute('placeholder', 'Enter the discount');
+input_discount.setAttribute('id', 'discount');
+discount_values.appendChild(input_discount);
+
+const discount_button = document.createElement('div');
+discount_button.setAttribute('id', 'discount-button');
+discount_percentage.appendChild(discount_button);
+
+const button = document.createElement('button');
+button.classList.add('button-discount');
+button.innerText = 'Calculate';
+discount_button.appendChild(button);
+button.addEventListener('click',discount);
+
+const result = document.createElement('p');
+result.setAttribute('id', 'pepe');
+discount_percentage.appendChild(result);
+
+function discount(){
+  let prec = parseFloat(input_price.value,10);
+  let desc = parseFloat(input_discount.value,10);
   if (isNaN(prec) || isNaN(desc)) {
-    resultado.textContent = "Llene el formulario y no se haga el vivo";
-    body.insertBefore(resultado,body.children[1]);
-    return;
+    result.innerText = "Fill out the form and don't pretend";
+  }else if (prec < 0 || desc < 0){
+    result.innerText = 'Enter an actual value'; 
+  }else if (desc > 99){
+    result.innerText = 'Enter a valid discount';
+  }else{
+    let res = (((prec*(100-desc))/100).toFixed(2)).toString();
+    result.innerText = "It's new price is $" + res;
   }
-
-  if (desc > 99){
-    resultado.textContent = "Ajá, ya quisieras, no te vamos a dar plata XD";
-    body.insertBefore(resultado,body.children[1]);
-    return;
-  }
-  let result = (((prec*(100-desc))/100).toFixed(2)).toString();
-  resultado.textContent = ("El precio final es: $" + result);
-  body.insertBefore(resultado,body.children[1]);
-  return;
+  body.insertBefore(result,body.children[2]);
 }
-
-boton.addEventListener('click',rebaja);
 
 
 //structure corresponding to the 'section' of discounts through coupons
@@ -69,6 +102,7 @@ coupon_button.classList.add('discount-coupon-button');
 coupon_button.innerText = 'Calculate';
 discount_coupon_button.appendChild(coupon_button);
 coupon_button.addEventListener('click',discountCoupon);
+
 const coupon_result = document.createElement('p');
 coupon_result.setAttribute('id', 'pepe');
 coupon_discount.appendChild(coupon_result);
